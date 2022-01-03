@@ -1,11 +1,12 @@
-import React from "react";
-import { Box, Container, TextField, Button } from "@mui/material";
+import { forwardRef } from "react";
+import { Box, TextField, Button } from "@mui/material";
 import { useForm } from "../customHooks/useForm";
-import { useModal } from "../customHooks/useModal";
 
-export const FormTodo = ({handleClose}, ref) => {
+export const FormTodo = forwardRef((props, ref) => {
+  const { handleClose } = props;
+
   const { onChangeInput } = useForm();
-  // const { handleClose } = useModal();
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -19,8 +20,8 @@ export const FormTodo = ({handleClose}, ref) => {
   };
 
   return (
-    // <>
-      <Box component="form" sx={style}>
+    <div>
+      <Box key="1" component="form" sx={style} ref={ref}>
         <div>
           <TextField
             id="name"
@@ -50,11 +51,11 @@ export const FormTodo = ({handleClose}, ref) => {
           variant="contained"
           sx={{ mt: 5, ml: 2 }}
           color="error"
-          onClick={handleClose}
+          onClick={() => handleClose()}
         >
           Close
         </Button>
       </Box>
-    // </>
+    </div>
   );
-};
+});

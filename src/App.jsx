@@ -1,9 +1,7 @@
-import { Main } from './components/Main';
+import { Main } from "./components/Main";
+import ToDo from "../src/views/ToDo";
 // import { Crud } from "./Crud";
 
 export const App = () => {
-  
-  return (
-    <Main/>
-  );
+  return <ToDo />;
 };
