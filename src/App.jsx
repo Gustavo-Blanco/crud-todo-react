@@ -1,8 +1,9 @@
-import { Crud } from "./Crud";
+import { Main } from './components/Main';
+// import { Crud } from "./Crud";
 
 export const App = () => {
   
   return (
-    <Crud/>
+    <Main/>
   );
 };
