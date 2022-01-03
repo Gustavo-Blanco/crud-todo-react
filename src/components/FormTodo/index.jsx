@@ -1,15 +1,23 @@
 import { TextField, Box, Button } from "@mui/material";
-import { store } from '../../api/crudTodo';
-import { useForm } from '../../customHooks/useForm';
+import { store } from "../../api/crudTodo";
+import { useForm } from "../../customHooks/useForm";
 
-export const FormTodo = ({ handleOpenDialog, getData }) => {
+export const FormTodo = ({
+  data,
+  handleOpenDialog,
+  getData,
+  isUpdate = false,
+}) => {
   const { onChangeInput, values } = useForm();
+
   const uploadTodo = async () => {
     handleOpenDialog();
     await store(values);
     await getData();
   };
-  const {name, description} = values;
+
+  const { name = data.name, description = data.description } = values;
+
   return (
     <Box component="form" sx={{ width: 300 }}>
       <div>
@@ -39,8 +47,13 @@ export const FormTodo = ({ handleOpenDialog, getData }) => {
           value={description}
         />
       </div>
-      <Box sx={{mt:3}}>
-        <Button variant="contained" color="error" onClick={handleOpenDialog} sx={{mr:2}}>
+      <Box sx={{ mt: 3 }}>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleOpenDialog}
+          sx={{ mr: 2 }}
+        >
           Close
         </Button>
         <Button variant="contained" onClick={uploadTodo} autoFocus>

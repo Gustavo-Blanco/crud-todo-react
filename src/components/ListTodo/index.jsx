@@ -8,19 +8,20 @@ import {
   Button,
   Paper,
 } from "@mui/material";
-import { getById } from '../../api/crudTodo';
-import { DialogTodo } from '../Dialog';
+import { getById } from "../../api/crudTodo";
+import { DialogTodo } from "../Dialog";
 
 export const ListTodo = ({ todos }) => {
-  
   const handleEdit = async (id) => {
     const todo = await getById(id);
-  }
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table
         // sx={{ minWidth: 650 }}
-        aria-label="simple table">
+        aria-label="simple table"
+      >
         <TableHead>
           <TableRow>
             <TableCell>Id</TableCell>
@@ -34,12 +35,14 @@ export const ListTodo = ({ todos }) => {
           {todos.map((todo) => (
             <TableRow
               key={todo.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
               <TableCell component="td">{todo.id}</TableCell>
               <TableCell component="td">{todo.name}</TableCell>
               <TableCell>{todo.description}</TableCell>
               <TableCell>{todo.state.toString()}</TableCell>
               <TableCell>
+                <DialogTodo txtButton="Editar" data={todo} />
                 <Button onClick={() => handleEdit(todo.id)}>Edit</Button>
                 {/* <Button onClick={(e) => handleDelete(todo.id)}>Delete</Button> */}
                 <Button>dads</Button>
