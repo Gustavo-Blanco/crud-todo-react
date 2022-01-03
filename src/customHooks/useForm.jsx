@@ -3,8 +3,7 @@ import { initialState } from "../states/todoState";
 export const useForm = () => {
   const [values, setValues] = useState(initialState);
   const [loading, setLoading] = useState(false);
-
-
+  // console.log('mis values', values);
   const onChangeInput = ({ target }) => {
     setValues({
       ...values,

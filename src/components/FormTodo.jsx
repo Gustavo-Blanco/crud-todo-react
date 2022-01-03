@@ -1,11 +1,13 @@
 import React from "react";
-import { Box, Container, TextField, Button } from "@mui/material";
+import { Box, Container, TextField, Button, DialogContent } from "@mui/material";
 import { useForm } from "../customHooks/useForm";
 import { useModal } from "../customHooks/useModal";
 
-export const FormTodo = ({handleClose}, ref) => {
-  const { onChangeInput } = useForm();
+export const FormTodo = React.forwardRef((props, ref) => {
+  const { onChangeInput, values } = useForm();
   // const { handleClose } = useModal();
+  console.log(props);
+  const handleClose = props.handleClose;
   const style = {
     position: "absolute",
     top: "50%",
@@ -19,8 +21,10 @@ export const FormTodo = ({handleClose}, ref) => {
   };
 
   return (
-    // <>
-      <Box component="form" sx={style}>
+    <div ref={ref}>
+
+    <DialogContent>
+      <Box component="form" sx={style} >
         <div>
           <TextField
             id="name"
@@ -55,6 +59,7 @@ export const FormTodo = ({handleClose}, ref) => {
           Close
         </Button>
       </Box>
-    // </>
+    </DialogContent>
+    </div>
   );
-};
+});

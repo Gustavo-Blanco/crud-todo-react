@@ -12,8 +12,9 @@ export const ModalTodo = () => {
         aria-describedby="modal-modal-description"
         open={open}
         onClose={handleClose}
-        children={<FormTodo open={handleClose} />}
-      />
+      >
+        <FormTodo handleClose={handleClose}/>
+      </Modal>
     </>
   );
 };
