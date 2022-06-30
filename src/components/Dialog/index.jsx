@@ -9,15 +9,15 @@ import {
 import { store } from '../../api/crudTodo';
 import { useDialog } from "../../customHooks/useDialog";
 import { FormTodo } from "../FormTodo/index";
-
-export const DialogTodo = ({getData}) => {
-  console.log('mi dialogo');
+import {todoState} from '../../states'
+export const DialogTodo = ({getData, todo = {todoState}, text = "Create"}) => {
+  // console.log('mi dialogo', todo);
   const { open, handleOpenDialog } = useDialog();
 
   return (
     <>
       <Button onClick={handleOpenDialog} variant="contained" sx={{ mb: 2 }}>
-        Open
+        {text}
       </Button>
       <Dialog open={open} onClose={handleOpenDialog}>
         <DialogTitle id="alert-dialog-title">Create todo</DialogTitle>
@@ -25,6 +25,7 @@ export const DialogTodo = ({getData}) => {
           <FormTodo
             handleOpenDialog={handleOpenDialog}
             getData={getData}
+            todo={todo}
           />
         </DialogContent>
         <DialogActions></DialogActions>

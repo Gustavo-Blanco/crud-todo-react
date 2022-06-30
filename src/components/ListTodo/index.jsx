@@ -8,13 +8,13 @@ import {
   Button,
   Paper,
 } from "@mui/material";
-import { getById } from '../../api/crudTodo';
+import { deleteTodo } from '../../api/crudTodo';
 import { DialogTodo } from '../Dialog';
 
-export const ListTodo = ({ todos }) => {
-  
-  const handleEdit = async (id) => {
-    const todo = await getById(id);
+export const ListTodo = ({ todos, getData }) => {
+  const handleDelete = async (id) => {
+    await deleteTodo(id);
+    await getData();
   }
   return (
     <TableContainer component={Paper}>
@@ -40,9 +40,9 @@ export const ListTodo = ({ todos }) => {
               <TableCell>{todo.description}</TableCell>
               <TableCell>{todo.state.toString()}</TableCell>
               <TableCell>
-                <Button onClick={() => handleEdit(todo.id)}>Edit</Button>
-                {/* <Button onClick={(e) => handleDelete(todo.id)}>Delete</Button> */}
-                <Button>dads</Button>
+                <DialogTodo getData={getData} todo={todo} text="Edit"/>
+                {/* <Button onClick={() => handleEdit(todo.id)}>Edit</Button> */}
+                <Button onClick={(e) => handleDelete(todo.id)}>Delete</Button>
               </TableCell>
             </TableRow>
           ))}

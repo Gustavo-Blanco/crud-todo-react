@@ -1,14 +1,20 @@
 import { TextField, Box, Button } from "@mui/material";
-import { store } from '../../api/crudTodo';
+import { store, updateTodo } from '../../api/crudTodo';
 import { useForm } from '../../customHooks/useForm';
 
-export const FormTodo = ({ handleOpenDialog, getData }) => {
-  const { onChangeInput, values } = useForm();
+export const FormTodo = ({ handleOpenDialog, getData, todo }) => {
+  const { onChangeInput, values } = useForm(todo);
+  console.log(getData);
   const uploadTodo = async () => {
     handleOpenDialog();
-    await store(values);
+    if (values.id) {
+      await store(values);
+    }else{
+      await updateTodo(values.id, values);
+    }
     await getData();
   };
+  
   const {name, description} = values;
   return (
     <Box component="form" sx={{ width: 300 }}>

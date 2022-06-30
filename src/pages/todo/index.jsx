@@ -19,7 +19,7 @@ export const TodoIndex = () => {
     <Container>
       <h1>todo index container</h1>
       <DialogTodo getData={getData} />
-      <ListTodo todos={todos} />
+      <ListTodo todos={todos} getData={getData} />
     </Container>
   );
 };
