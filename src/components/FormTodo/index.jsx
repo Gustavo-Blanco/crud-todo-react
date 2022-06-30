@@ -45,8 +45,13 @@ export const FormTodo = ({ handleOpenDialog, getData, todo }) => {
           value={description}
         />
       </div>
-      <Box sx={{mt:3}}>
-        <Button variant="contained" color="error" onClick={handleOpenDialog} sx={{mr:2}}>
+      <Box sx={{ mt: 3 }}>
+        <Button
+          variant="contained"
+          color="error"
+          onClick={handleOpenDialog}
+          sx={{ mr: 2 }}
+        >
           Close
         </Button>
         <Button variant="contained" onClick={uploadTodo} autoFocus>

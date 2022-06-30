@@ -20,7 +20,8 @@ export const ListTodo = ({ todos, getData }) => {
     <TableContainer component={Paper}>
       <Table
         // sx={{ minWidth: 650 }}
-        aria-label="simple table">
+        aria-label="simple table"
+      >
         <TableHead>
           <TableRow>
             <TableCell>Id</TableCell>
@@ -34,7 +35,8 @@ export const ListTodo = ({ todos, getData }) => {
           {todos.map((todo) => (
             <TableRow
               key={todo.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
               <TableCell component="td">{todo.id}</TableCell>
               <TableCell component="td">{todo.name}</TableCell>
               <TableCell>{todo.description}</TableCell>

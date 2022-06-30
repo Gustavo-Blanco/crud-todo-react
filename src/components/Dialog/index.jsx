@@ -6,7 +6,7 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
-import { store } from '../../api/crudTodo';
+import { store } from "../../api/crudTodo";
 import { useDialog } from "../../customHooks/useDialog";
 import { FormTodo } from "../FormTodo/index";
 import {todoState} from '../../states'

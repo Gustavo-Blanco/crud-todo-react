@@ -11,10 +11,11 @@ export const TodoIndex = () => {
   const getData = async () => {
     const data = await all();
     setTodos(data);
-  }
+  };
   useEffect(() => {
     getData();
   }, []);
+
   return (
     <Container>
       <h1>todo index container</h1>
