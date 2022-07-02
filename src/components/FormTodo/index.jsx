@@ -4,10 +4,10 @@ import { useForm } from '../../customHooks/useForm';
 
 export const FormTodo = ({ handleOpenDialog, getData, todo }) => {
   const { onChangeInput, values } = useForm(todo);
-  console.log(getData);
+
   const uploadTodo = async () => {
     handleOpenDialog();
-    if (values.id) {
+    if (!values.id) {
       await store(values);
     }else{
       await updateTodo(values.id, values);

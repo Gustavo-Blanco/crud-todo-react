@@ -1,5 +1,5 @@
 export const initialState = {
-    name: '',
-    description: '',
-    state: false
+    // name: '',
+    // description: '',
+    // state: false
 }

@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { initialState } from "../states/todoState";
-export const useForm = (todoValue = initialState) => {
+export const useForm = (todoValue) => {
   const [values, setValues] = useState(todoValue);
   const [loading, setLoading] = useState(false);
-  // console.log('mis values', values);
   const onChangeInput = ({ target }) => {
     setValues({
       ...values,

@@ -27,7 +27,6 @@ export const ListTodo = ({ todos, getData }) => {
             <TableCell>Id</TableCell>
             <TableCell>Name</TableCell>
             <TableCell>Description</TableCell>
-            <TableCell>State</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -40,10 +39,8 @@ export const ListTodo = ({ todos, getData }) => {
               <TableCell component="td">{todo.id}</TableCell>
               <TableCell component="td">{todo.name}</TableCell>
               <TableCell>{todo.description}</TableCell>
-              <TableCell>{todo.state.toString()}</TableCell>
               <TableCell>
                 <DialogTodo getData={getData} todo={todo} text="Edit"/>
-                {/* <Button onClick={() => handleEdit(todo.id)}>Edit</Button> */}
                 <Button onClick={(e) => handleDelete(todo.id)}>Delete</Button>
               </TableCell>
             </TableRow>

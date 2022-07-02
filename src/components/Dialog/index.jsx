@@ -6,12 +6,10 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
-import { store } from "../../api/crudTodo";
 import { useDialog } from "../../customHooks/useDialog";
 import { FormTodo } from "../FormTodo/index";
 import {todoState} from '../../states'
-export const DialogTodo = ({getData, todo = {todoState}, text = "Create"}) => {
-  // console.log('mi dialogo', todo);
+export const DialogTodo = ({getData, todo = {...todoState}, text = "Create"}) => {
   const { open, handleOpenDialog } = useDialog();
 
   return (

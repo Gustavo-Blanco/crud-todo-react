@@ -1,5 +1,5 @@
 export const todoState = {
-    name: '',
-    description: '',
-    state: false
+    // name: '',
+    // description: '',
+    // state: false
 }
